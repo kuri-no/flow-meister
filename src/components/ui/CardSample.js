@@ -6,7 +6,8 @@ export default function CardSample() {
       <p style={{ color: "#333", backgroundColor: "orange" }}>
         カードの内容が入ります。
       </p>
-      <ButtonSample />
+      <ButtonSample text="詳細を見る" type="button" />
+      <ButtonSample text="購入する" type="button" />
     </div>
   );
 }

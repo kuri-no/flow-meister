@@ -1,11 +1,11 @@
 "use client";
 
-export default function ButtonSample() {
+export default function ButtonSample(props) {
   function handleButtonClick() {
     alert("click!");
   }
 
   return (
-    <button type="button" onClick={handleButtonClick}>ボタン</button>
+    <button type={props.type} onClick={handleButtonClick}>{props.text}</button>
   );
 }
