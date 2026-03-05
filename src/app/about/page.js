@@ -1,11 +1,12 @@
 import ButtonSample from "../../components/ui/ButtonSample";
 import CardSample from "../../components/ui/CardSample";
+import TwoColumnSample from "../../components/layout/TwoColumnSample";
 
 export default function About() {
   const boxClass = "box";
 
   return (
-    <>
+    <TwoColumnSample>
       <div className={boxClass}>
         <p style={{ color: "#333", backgroundColor: "pink" }}>
           段落が入ります。段落が入ります。<br />段落が入ります。
@@ -14,6 +15,6 @@ export default function About() {
         <hr />
         <CardSample />
       </div>
-    </>
+    </TwoColumnSample>
   );
 }
