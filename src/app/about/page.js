@@ -10,7 +10,9 @@ export default function About() {
     <TwoColumnSample>
       <div className={boxClass}>
         <p style={{ color: "#333", backgroundColor: "pink" }}>
-          段落が入ります。段落が入ります。<br />段落が入ります。
+          段落が入ります。段落が入ります。
+          <br />
+          段落が入ります。
         </p>
         <ButtonSample text="ボタン" type="submit" disabled={true} title="テスト" />
         <hr />
