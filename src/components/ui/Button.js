@@ -1,4 +1,4 @@
-import styles from "./Button.module.css";
+import styles from "@/components/ui/Button.module.css";
 import Link from "next/link"
 
 export default function Button({ href, text }) {
