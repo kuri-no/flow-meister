@@ -5,6 +5,7 @@ import MenuSample from "@/components/ui/MenuSample";
 import Button from "@/components/ui/Button";
 import ButtonOutline from "@/components/ui/ButtonOutline";
 import Heading from "@/components/ui/Heading";
+import HamburgerIcon from "@/components/ui/HamburgerIcon";
 
 export default function About() {
   const boxClass = "box";
@@ -16,6 +17,8 @@ export default function About() {
         <ButtonOutline href="#" text="導入事例をすべて見る" />
         <hr />
         <Heading subText="Feature" mainText="3つの特徴" textAlign="isLeft" />
+        <hr />
+        <HamburgerIcon isOpen={false} />
         <p style={{ color: "#333", backgroundColor: "pink" }}>
           段落が入ります。段落が入ります。
           <br />
