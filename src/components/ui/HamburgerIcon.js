@@ -3,9 +3,6 @@
 import styles from "@/components/ui/HamburgerIcon.module.css";
 
 export default function HamburgerIcon({ isOpen = false, onClick }) {
-  const handleClick = () => {
-    onClick();
-  }
 
   return (
     <button
@@ -13,7 +10,7 @@ export default function HamburgerIcon({ isOpen = false, onClick }) {
       className={`${styles.hamburger} ${isOpen && styles.isOpen}`}
       type="button"
       aria-label="メニューを開閉"
-      onClick={handleClick}
+      onClick={onClick}
     >
       <span className={styles.bar1}></span>
       <span className={styles.bar2}></span>
