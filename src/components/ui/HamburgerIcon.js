@@ -2,9 +2,9 @@
 
 import styles from "@/components/ui/HamburgerIcon.module.css";
 
-export default function HamburgerIcon({ isOpen = false }) {
+export default function HamburgerIcon({ isOpen = false, onClick }) {
   const handleClick = () => {
-    alert("クリックされました！")
+    onClick();
   }
 
   return (
