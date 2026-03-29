@@ -1,7 +1,12 @@
 import styles from "@/components/ui/Button.module.css";
-import Link from "next/link"
+import Link from "next/link";
 
-export default function Button({ href, text }) {
+type ButtonProps = {
+  href: string;
+  text: string;
+};
+
+export default function Button({ href, text }: ButtonProps) {
   return (
     <Link href={href} className={styles.button}>
       {text}
