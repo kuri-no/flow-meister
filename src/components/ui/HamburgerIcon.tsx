@@ -2,8 +2,15 @@
 
 import styles from "@/components/ui/HamburgerIcon.module.css";
 
-export default function HamburgerIcon({ isOpen = false, onClick }) {
+type HamburgerIconProps = {
+  isOpen: boolean;
+  onClick: () => void;
+};
 
+export default function HamburgerIcon({
+  isOpen = false,
+  onClick,
+}: HamburgerIconProps) {
   return (
     <button
       id="js-hamburger"
