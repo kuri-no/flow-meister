@@ -1,5 +1,7 @@
+import PageFirstView from "@/components/layout/PageFirstView";
+
 export default function News() {
-  return  (
-    <p>お知らせ一覧ページです。</p>
-  )
+  return (
+    <PageFirstView subText="News" mainText="お知らせ" textAlign="isCenter" />
+  );
 }
