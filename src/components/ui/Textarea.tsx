@@ -1,28 +1,24 @@
-import styles from "./Input.module.css";
+import styles from "./Textarea.module.css";
 
-type InputProps = {
+type TextareaProps = {
   id?: string;
-  type: string;
   name: string;
   defaultValue?: string;
   placeholder?: string;
   required?: boolean;
-  pattern?: string;
 };
 
-export default function Input({
+export default function Textarea({
   id = "",
-  type,
   name,
   defaultValue = "",
   placeholder = "",
   ...restOfProps
-}: InputProps) {
+}: TextareaProps) {
   return (
-    <input
-      className={styles.input}
+    <textarea
+      className={styles.textarea}
       id={id}
-      type={type}
       name={name}
       defaultValue={defaultValue}
       placeholder={placeholder}
