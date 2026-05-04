@@ -5,6 +5,7 @@ import Textarea from "@/components/ui/Textarea";
 import Radio from "@/components/ui/Radio";
 import Checkbox from "@/components/ui/Checkbox";
 import Submit from "@/components/ui/Submit";
+import Label from "@/components/ui/Label";
 
 export default function Contact() {
   return (
@@ -16,6 +17,7 @@ export default function Contact() {
       />
       <TwoColumn>
         <p>お問い合わせ用のページです</p>
+        <Label text="会社・組織名" isRequired={true} id="company" />
         <Input
           id="company"
           type="text"
