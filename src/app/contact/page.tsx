@@ -3,6 +3,7 @@ import TwoColumn from "@/components/layout/TwoColumn";
 import Input from "@/components/ui/Input";
 import Textarea from "@/components/ui/Textarea";
 import Radio from "@/components/ui/Radio";
+import Checkbox from "@/components/ui/Checkbox";
 
 export default function Contact() {
   return (
@@ -36,10 +37,21 @@ export default function Contact() {
           name="color"
           items={[
             { value: "青", text: "青" },
-            { value: "赤", text: "赤" },
+            { value: "赤", text: "赤", cheked: true },
             { value: "黄", text: "黄" },
           ]}
+          required={true}
         ></Radio>
+        <p>お問い合わせ用のページです</p>
+        <Checkbox
+          name="color2"
+          items={[
+            { value: "青", text: "青" },
+            { value: "赤", text: "赤", cheked: true },
+            { value: "黄", text: "黄" },
+          ]}
+          required={true}
+        ></Checkbox>
       </TwoColumn>
     </>
   );
