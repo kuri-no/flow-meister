@@ -6,6 +6,7 @@ import Radio from "@/components/ui/Radio";
 import Checkbox from "@/components/ui/Checkbox";
 import Submit from "@/components/ui/Submit";
 import Label from "@/components/ui/Label";
+import Form from "@/components/layout/Form";
 
 export default function Contact() {
   return (
@@ -16,6 +17,7 @@ export default function Contact() {
         textAlign="isCenter"
       />
       <TwoColumn>
+        <Form />
         <p>お問い合わせ用のページです</p>
         <Label text="会社・組織名" isRequired={true} id="company" />
         <Input
