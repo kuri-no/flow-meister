@@ -1,5 +1,5 @@
 import PageFirstView from "@/components/layout/PageFirstView";
-import TwoColumn from "@/components/layout/TwoColumn";
+import OneColumn from "@/components/layout/OneColumn";
 import Input from "@/components/ui/Input";
 import Textarea from "@/components/ui/Textarea";
 import Radio from "@/components/ui/Radio";
@@ -16,7 +16,7 @@ export default function Contact() {
         mainText="お問い合わせ"
         textAlign="isCenter"
       />
-      <TwoColumn>
+      <OneColumn isSlim={true}>
         <Form />
         <p>お問い合わせ用のページです</p>
         <Label text="会社・組織名" isRequired={true} id="company" />
@@ -59,7 +59,7 @@ export default function Contact() {
         />
         <p>お問い合わせ用のページです</p>
         <Submit text="送信する" />
-      </TwoColumn>
+      </OneColumn>
     </>
   );
 }
