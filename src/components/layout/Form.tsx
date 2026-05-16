@@ -6,9 +6,18 @@ import Radio from "../ui/Radio";
 import Checkbox from "../ui/Checkbox";
 import Submit from "../ui/Submit";
 
+const SSG_FORM_URL = process.env.NEXT_PUBLIC_SSG_FORM;
+
 export default function Form() {
+
+  if( ! SSG_FORM_URL ) {
+    return (
+      <p>現在はフォームの送信ができない状態です。しばらくしてもう一度お試しいただくか、xxx@example.comまでご連絡ください。</p>
+    );
+  }
+
   return (
-    <form className={styles.form}>
+    <form className={styles.form} action={SSG_FORM_URL} method="post">
       <div className={styles.body}>
         <div className={styles.field}>
           <Label text="会社・組織名" id="your-company" />
@@ -82,14 +91,10 @@ export default function Form() {
       </div>
       <div className={styles.footer}>
         <div className={styles.privacy}>
-          <p className={styles.privacyText}>
-            個人情報保護方針に同意しますか？
-          </p>
+          <p className={styles.privacyText}>個人情報保護方針に同意しますか？</p>
           <Checkbox
             name="個人情報保護方針に同意しますか？"
-            items={[
-              { value: "同意する", text: "同意する" }
-            ]}
+            items={[{ value: "同意する", text: "同意する" }]}
             required={true}
           />
         </div>
