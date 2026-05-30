@@ -7,7 +7,6 @@ import console from "node:console";
 import { getPost } from "@/lib/wordpress";
 import { formatDate } from "@/utils/date";
 import { FeaturedMedia, Term } from "@/types/wordpress";
-import { stripHtmlTags } from "@/utils/string";
 
 export default async function News({ params }) {
   const { id } = await params;
