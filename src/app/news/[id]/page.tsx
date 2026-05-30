@@ -11,11 +11,7 @@ import { stripHtmlTags } from "@/utils/string";
 
 export default async function News({ params }) {
   const { id } = await params;
-  console.log(id);
-
   const post = await getPost(parseInt(id));
-  console.log(post);
-
   const categories = (post?._embedded?.["wp:term"]?.[0] ?? []) as Term[];
   const featuredmedia = (post?._embedded?.["wp:featuredmedia"]?.[0] ?? {
     source_url: "/thumbnail0.jpg",
