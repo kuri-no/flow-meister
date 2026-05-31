@@ -2,6 +2,7 @@ import {
   WP_REST_API_Posts,
   WP_REST_API_Post,
   WP_REST_API_Categories,
+  WP_REST_API_Category,
 } from "wp-types";
 
 const WORDPRESS_POSTS_URL = process.env.WORDPRESS_POSTS_URL;
@@ -44,4 +45,27 @@ export async function getAllCategories(): Promise<WP_REST_API_Categories> {
   const categories = await categoryResponse.json();
 
   return categories;
+}
+
+export async function getCategoryPosts(
+  categoryIds: number | number[],
+  perPage: number,
+): Promise<WP_REST_API_Posts> {
+  const categoriesString = Array.isArray(categoryIds)
+    ? categoryIds.join(",")
+    : categoryIds.toString();
+
+  const responce = await fetch(
+    `${WORDPRESS_POSTS_URL}?_embed=&per_page=${perPage}&categories=${categoriesString}`,
+  );
+  const posts = await responce.json();
+
+  return posts;
+}
+
+export async function getCategoryFromId(id: number): Promise<WP_REST_API_Category> {
+  const responce = await fetch(`${WORDPRESS_CATEGORIES_URL}/${id}`);
+  const category = await responce.json();
+
+  return category;
 }

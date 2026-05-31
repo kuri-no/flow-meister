@@ -3,7 +3,6 @@ import TwoColumn from "@/components/layout/TwoColumn";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Post.module.css";
-import console from "node:console";
 import { getPost } from "@/lib/wordpress";
 import { formatDate } from "@/utils/date";
 import { FeaturedMedia, Term } from "@/types/wordpress";
