@@ -2,8 +2,20 @@ import PageFirstView from "@/components/layout/PageFirstView";
 import OneColumn from "@/components/layout/OneColumn";
 import Form from "@/components/layout/Form";
 import styles from "./Contact.module.css";
+import Breadcrumb from "@/components/layout/Breadcrumb";
 
 export default function Contact() {
+  const BreadcrumbItems = [
+    {
+      href: "/",
+      text: "ホーム",
+    },  
+    {
+      href: "/contact/",
+      text: "お問い合わせ",
+    },
+  ]
+
   return (
     <>
       <PageFirstView
@@ -18,6 +30,7 @@ export default function Contact() {
         </p>
         <Form />
       </OneColumn>
+      <Breadcrumb items={BreadcrumbItems} />
     </>
   );
 }

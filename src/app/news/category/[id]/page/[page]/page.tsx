@@ -11,6 +11,7 @@ import {
   getCategoryTotalPages,
 } from "@/lib/wordpress";
 import { FeaturedMedia, Term } from "@/types/wordpress";
+import Breadcrumb from "@/components/layout/Breadcrumb";
 
 type NewsProps = {
   params: Promise<{ id: string; page: string }>;
@@ -24,6 +25,21 @@ export default async function News({ params }: NewsProps) {
   const posts = await getCategoryPosts(currentCategoryId, perPage, currentPage);
   const categry = await getCategoryFromId(currentCategoryId);
   const totalPages = await getCategoryTotalPages(currentCategoryId, perPage);
+
+  const BreadcrumbItems = [
+    {
+      href: "/",
+      text: "ホーム",
+    },
+    {
+      href: "/news/",
+      text: "お知らせ",
+    },
+    {
+      href: `/news/category/${id}/`,
+      text: categry.name,
+    },
+  ]
 
   return (
     <>
@@ -72,6 +88,7 @@ export default async function News({ params }: NewsProps) {
           </div>
         </div>
       </TwoColumn>
+      <Breadcrumb items={BreadcrumbItems} />
     </>
   );
 }
