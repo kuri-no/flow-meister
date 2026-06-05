@@ -12,6 +12,7 @@ import { FeaturedMedia, Term } from "@/types/wordpress";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import type { Metadata } from "next";
 import { defaultOpenGrapth, siteName } from "@/lib/metadata";
+import { notFound } from 'next/navigation';
 
 type NewsProps = {
   params: Promise<{ id: string }>;
@@ -43,6 +44,11 @@ export async function generateMetadata({
 export default async function News({ params }: NewsProps) {
   const { id } = await params;
   const post = await getPost(parseInt(id));
+
+  if (!post) {
+    notFound();
+  }
+
   const categories = (post?._embedded?.["wp:term"]?.[0] ?? []) as Term[];
   const featuredmedia = (post?._embedded?.["wp:featuredmedia"]?.[0] ?? {
     source_url: "/thumbnail0.jpg",
