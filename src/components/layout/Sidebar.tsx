@@ -49,37 +49,41 @@ export default async function Sidebar() {
       </div>
       <div className={styles.widget}>
         <h3 className={styles.widgetTitle}>ピックアップ記事</h3>
-        <div className={styles.cards}>
-          {tagPosts.map((tagpost) => {
-            const featuredmedia = (tagpost?._embedded?.[
-              "wp:featuredmedia"
-            ]?.[0] ?? { source_url: "/thumbnail0.jpg" }) as FeaturedMedia;
-            return (
-              <Link
-                href={`/news/${tagpost.id}`}
-                className={styles.card}
-                key={tagpost.id}
-              >
-                <Image
-                  className={styles.cardImage}
-                  src={featuredmedia.source_url}
-                  alt=""
-                  width="110"
-                  height="96"
-                />
-                <div className={styles.cardBody}>
-                  <time
-                    className={styles.cardDate}
-                    dateTime={formatDate(tagpost.date, "-")}
-                  >
-                    {formatDate(tagpost.date)}
-                  </time>
-                  <p className={styles.cardTitle}>{tagpost.title.rendered}</p>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
+        {tagPosts.length === 0 ? (
+          <p className={styles.textNotFound}>記事が存在しません。</p>
+        ) : (
+          <div className={styles.cards}>
+            {tagPosts.map((tagpost) => {
+              const featuredmedia = (tagpost?._embedded?.[
+                "wp:featuredmedia"
+              ]?.[0] ?? { source_url: "/thumbnail0.jpg" }) as FeaturedMedia;
+              return (
+                <Link
+                  href={`/news/${tagpost.id}`}
+                  className={styles.card}
+                  key={tagpost.id}
+                >
+                  <Image
+                    className={styles.cardImage}
+                    src={featuredmedia.source_url}
+                    alt=""
+                    width="110"
+                    height="96"
+                  />
+                  <div className={styles.cardBody}>
+                    <time
+                      className={styles.cardDate}
+                      dateTime={formatDate(tagpost.date, "-")}
+                    >
+                      {formatDate(tagpost.date)}
+                    </time>
+                    <p className={styles.cardTitle}>{tagpost.title.rendered}</p>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        )}
       </div>
       <div className={styles.widget}>
         <h3 className={styles.widgetTitle}>メニュー</h3>
