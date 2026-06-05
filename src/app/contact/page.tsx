@@ -3,6 +3,18 @@ import OneColumn from "@/components/layout/OneColumn";
 import Form from "@/components/layout/Form";
 import styles from "./Contact.module.css";
 import Breadcrumb from "@/components/layout/Breadcrumb";
+import type { Metadata } from 'next';
+import { defaultOpenGrapth, siteName } from "@/lib/metadata";
+
+export const metadata: Metadata = {
+  title: "お問い合わせ",
+  description: "お問い合わせページです。",
+  openGraph: {
+    ...defaultOpenGrapth,
+    title: `お問い合わせ | ${siteName}`,
+    url: "/contact/",
+  },
+};
 
 export default function Contact() {
   const BreadcrumbItems = [

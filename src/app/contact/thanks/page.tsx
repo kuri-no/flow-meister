@@ -4,6 +4,18 @@ import Image from "next/image";
 import ButtonOutline from "@/components/ui/ButtonOutline";
 import styles from "./Thanks.module.css";
 import Breadcrumb from "@/components/layout/Breadcrumb";
+import type { Metadata } from 'next';
+import { defaultOpenGrapth, siteName } from "@/lib/metadata";
+
+export const metadata: Metadata = {
+  title: "お問い合わせ",
+  description: "お問い合わせページです。",
+  openGraph: {
+    ...defaultOpenGrapth,
+    title: `お問い合わせ | ${siteName}`,
+    url: "/contact/thanks/",
+  },
+};
 
 export default function Thanks() {
   const BreadcrumbItems = [
