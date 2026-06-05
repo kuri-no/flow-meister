@@ -8,9 +8,30 @@ import { formatDate } from "@/utils/date";
 import { getCategoryPosts, getCategoryFromId, getCategoryTotalPages } from "@/lib/wordpress";
 import { FeaturedMedia, Term } from "@/types/wordpress";
 import Breadcrumb from "@/components/layout/Breadcrumb";
+import type { Metadata } from 'next';
+import { defaultOpenGrapth, siteName } from "@/lib/metadata";
 
 type NewsProps = {
   params: Promise<{ id: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: NewsProps): Promise<Metadata> {
+  const { id } = await params;
+  
+  const currentCategoryId = parseInt(id);
+  const categry= await getCategoryFromId(currentCategoryId);
+
+  return {
+    title: `「${categry.name}」の記事`,
+    description: `「${categry.name}」の記事一覧ページです。`,
+    openGraph: {
+      ...defaultOpenGrapth,
+      title: `「${categry.name}」の記事 | ${siteName}`,
+      url: `/news/category/${id}/`,
+    },
+  };
 }
 
 export default async function News({ params }: NewsProps) {
