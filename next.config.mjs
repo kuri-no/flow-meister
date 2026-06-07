@@ -2,7 +2,10 @@
 const nextConfig = {
   trailingSlash: true,
   images: {
-    remotePatterns: [new URL('https://kurino096.shop/**')],
+    remotePatterns: [
+      new URL("https://kurino096.shop/**"),
+      new URL("https://images.microcms-assets.io/**")
+    ],
   },
 };
 
