@@ -5,6 +5,7 @@ import NewsCard from "@/components/ui/NewsCard";
 import { stripHtmlTags } from "@/utils/string";
 import { formatDate } from "@/utils/date";
 import { client } from "@/lib/microcms";
+import ButtonTailwind from "@/components/ui/ButtonTailwind";
 
 // お知らせ記事の型定義
 type Props = {
@@ -65,7 +66,7 @@ export default async function NewsSection() {
           </div>
         )}
         <div className={styles.button}>
-          <Button href="/news/" text="すべてのお知らせを見る" />
+          <ButtonTailwind href="/news/" text="すべてのお知らせを見る" />
         </div>
       </div>
     </div>
