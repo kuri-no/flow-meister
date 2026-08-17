@@ -14,7 +14,9 @@
   line-height: 1.5;
   letter-spacing: 0.05em;
   text-align: left;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 
   @media (any-hover: hover) {
     &:hover {
