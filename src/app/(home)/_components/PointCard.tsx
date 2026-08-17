@@ -30,9 +30,7 @@ export default function PointCard({
         <span className={styles.number}>{percent}</span>
         <span className={styles.percentage}>%</span>
       </p>
-      <p className={styles.description}>
-        {description}
-      </p>
+      <p className={styles.description}>{description}</p>
     </div>
   );
 }

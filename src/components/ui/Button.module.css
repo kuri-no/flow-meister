@@ -19,14 +19,12 @@
     background-color 0.3s,
     color 0.3s;
   cursor: pointer;
-
   @media (any-hover: hover) {
     &:hover {
       background-color: var(--White);
       color: var(--Blue-500);
     }
   }
-
   @media (width >= 768px) {
     padding-inline: 80px;
     font-size: 20px;

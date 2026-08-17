@@ -17,14 +17,12 @@
   transition:
     background-color 0.3s,
     color 0.3s;
-
   @media (any-hover: hover) {
     &:hover {
       background-color: var(--Blue-500);
       color: var(--White);
     }
   }
-
   @media (width >= 768px) {
     padding-inline: 80px;
     font-size: 20px;

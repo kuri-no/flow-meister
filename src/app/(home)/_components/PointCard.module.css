@@ -1,7 +1,6 @@
 .card {
   padding-block: 24px;
   padding-inline: 16px;
-
   @media (width >= 768px) {
     padding-inline: 40px;
   }
@@ -9,7 +8,6 @@
 
 .imageWrap {
   padding-inline: 32px;
-
   @media (width >= 768px) {
     padding-inline: 0;
   }
@@ -30,7 +28,6 @@
   font-weight: 800;
   line-height: 1.8;
   word-break: auto-phrase;
-
   @media (width >= 768px) {
     font-size: 20px;
   }
@@ -50,7 +47,6 @@
   font-size: 48px;
   font-weight: 800;
   line-height: 1;
-
   @media (width >= 768px) {
     font-size: 56px;
   }
@@ -70,7 +66,6 @@
   font-size: 15px;
   font-weight: 500;
   line-height: 1.8;
-
   @media (width >= 768px) {
     font-size: 18px;
   }

@@ -6,16 +6,13 @@
   line-height: 1.8;
   background: var(--White);
   border: 1px solid var(--Slate-300);
-
   &::placeholder {
     color: var(--Slate-400);
   }
-
   &:focus {
     outline: none;
     border-color: var(--Blue-500);
   }
-
   @media (width >= 768px) {
     font-size: 18px;
   }

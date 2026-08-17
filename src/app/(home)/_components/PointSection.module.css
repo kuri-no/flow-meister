@@ -2,11 +2,10 @@
   padding-block: 40px 29px;
   background: var(--White);
   position: relative;
-
   &::before {
     content: "";
     position: absolute;
-    bottom: calc(100% - 1px); /* サブピクセルレンダリング対策 */
+    bottom: calc(100% - 1px);
     left: 0;
     width: 100%;
     height: 25px;
@@ -15,7 +14,6 @@
 
   @media (width >= 768px) {
     padding-block: 80px 145px;
-
     &::before {
       height: 85px;
       background-image: url(/point-section-wave-pc.svg);
@@ -28,7 +26,6 @@
   max-width: 100%;
   margin-inline: auto;
   padding-inline: 26px;
-
   @media (width >= 768px) {
     padding-inline: 20px;
   }
@@ -40,14 +37,12 @@
   font-size: 20px;
   font-weight: 800;
   line-height: 1.5;
-
   .em {
     color: var(--Blue-500);
   }
 
   @media (width >= 768px) {
     font-size: 32px;
-
     .spOnly {
       display: none;
     }
@@ -59,7 +54,6 @@
   flex-direction: column;
   align-items: stretch;
   margin-top: 16px;
-
   @media (width >= 768px) {
     flex-direction: row;
     margin-top: 40px;
@@ -69,15 +63,12 @@
 .card {
   flex: 1;
   flex-direction: column;
-
   &:nth-child(n + 2) {
     border-top: 3px solid #f1f5f9;
     border-left: none;
   }
-
   @media (width >= 768px) {
     flex-direction: row;
-
     &:nth-child(n + 2) {
       border-left: 3px solid #f1f5f9;
       border-top: none;

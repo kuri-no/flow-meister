@@ -7,11 +7,7 @@ import styles from "./NotFound.module.css";
 export default function NotFound() {
   return (
     <>
-      <PageFirstView
-        subText="Not Found"
-        mainText="404"
-        textAlign="isCenter"
-      />
+      <PageFirstView subText="Not Found" mainText="404" textAlign="isCenter" />
       <OneColumn>
         <div className={styles.pageThanks}>
           <p className={styles.lead}>Not Found</p>

@@ -14,18 +14,14 @@ export default function FeatureCard({
   heading,
   text,
   src,
-  isReverse = false
+  isReverse = false,
 }: FeatureCardProps) {
   return (
     <div className={`${styles.card} ${isReverse && styles.isReverse}`}>
       <div className={styles.box}>
         <p className={styles.point}>{point}</p>
-        <p className={styles.heading}>
-          {heading}
-        </p>
-        <p className={styles.text}>
-          {text}
-        </p>
+        <p className={styles.heading}>{heading}</p>
+        <p className={styles.text}>{text}</p>
       </div>
       <div className={styles.imageBox}>
         <Image

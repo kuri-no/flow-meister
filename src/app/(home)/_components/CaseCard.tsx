@@ -18,9 +18,7 @@ export default function CaseCard({ src, comment, company }: CaseCardProps) {
         height="140"
       />
       <div className={styles.body}>
-        <p className={styles.comment}>
-          {comment}
-        </p>
+        <p className={styles.comment}>{comment}</p>
         <p className={styles.company}>{company}</p>
       </div>
     </div>

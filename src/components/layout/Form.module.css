@@ -13,9 +13,6 @@
   gap: 8px;
 }
 
-.field:has(:user-invalid) {
-}
-
 .field:has(:user-invalid) .error,
 .privacy:has(:user-invalid) .error {
   display: block;
@@ -32,9 +29,6 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-}
-
-.privacyText {
 }
 
 .submit {

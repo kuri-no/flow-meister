@@ -29,41 +29,11 @@ export default function Footer() {
                   ホーム
                 </Link>
               </li>
-              <li className={styles.list}>
-                <Link href="/features" className={styles.link}>
-                  特徴
-                </Link>
-              </li>
-              <li className={styles.list}>
-                <Link href="/services" className={styles.link}>
-                  サービス
-                </Link>
-              </li>
-              <li className={styles.list}>
-                <Link href="/pricing" className={styles.link}>
-                  価格
-                </Link>
-              </li>
             </ul>
             <ul className={styles.lists2}>
               <li className={styles.list}>
-                <Link href="/company" className={styles.link}>
-                  会社情報
-                </Link>
-              </li>
-              <li className={styles.list}>
                 <Link href="/news" className={styles.link}>
                   お知らせ
-                </Link>
-              </li>
-              <li className={styles.list}>
-                <Link href="/blog" className={styles.link}>
-                  ブログ
-                </Link>
-              </li>
-              <li className={styles.list}>
-                <Link href="/faq" className={styles.link}>
-                  よくある質問
                 </Link>
               </li>
             </ul>
@@ -71,11 +41,6 @@ export default function Footer() {
               <li className={styles.list}>
                 <Link href="/contact" className={styles.link}>
                   お問い合わせ
-                </Link>
-              </li>
-              <li className={styles.list}>
-                <Link href="/privacy" className={styles.link}>
-                  プライバシーポリシー
                 </Link>
               </li>
             </ul>
