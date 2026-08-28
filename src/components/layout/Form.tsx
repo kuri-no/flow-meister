@@ -9,10 +9,11 @@ import Submit from "../ui/Submit";
 const SSG_FORM_URL = process.env.NEXT_PUBLIC_SSG_FORM;
 
 export default function Form() {
-
-  if( ! SSG_FORM_URL ) {
+  if (!SSG_FORM_URL) {
     return (
-      <p>現在はフォームの送信ができない状態です。しばらくしてもう一度お試しいただくか、xxx@example.comまでご連絡ください。</p>
+      <p>
+        現在はフォームの送信ができない状態です。しばらくしてもう一度お試しいただくか、xxx@example.comまでご連絡ください。
+      </p>
     );
   }
 
@@ -73,7 +74,7 @@ export default function Form() {
           <Input
             type="tel"
             name="連絡先電話番号"
-            placeholder="例）000-0000-000"
+            placeholder="例）00-1111-2222"
             required={true}
             id="your-tel"
           />

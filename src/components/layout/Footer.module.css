@@ -1,32 +1,24 @@
 .footer {
   background: var(--White);
-  padding: 10px 20px 20px 20px;
-}
-
-.container {
+  padding: 20px;
 }
 
 .main {
-  padding: 40px 20px;
+  padding: 20px;
   border-top: 2px solid var(--Sky-100);
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   flex-wrap: wrap;
   gap: 40px;
-
   @media (width >= 768px) {
-    padding: 40px 80px;
+    padding: 20px 80px;
     flex-direction: row;
   }
 }
 
-.info {
-}
-
 .logoLink {
   transition: opacity 0.3s;
-
   @media (any-hover: hover) {
     &:hover {
       opacity: 0.6;
@@ -37,7 +29,6 @@
 .logo {
   display: block;
   width: 198px;
-
   @media (width >= 768px) {
     width: 228px;
   }
@@ -53,7 +44,6 @@
 
 .company {
   margin-top: 32px;
-
   @media (width >= 768px) {
     margin-top: 40px;
   }
@@ -62,8 +52,7 @@
 .nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px 56px;
-
+  gap: 24px;
   @media (width >= 768px) {
     gap: 48px;
   }
@@ -74,7 +63,7 @@
 .lists3 {
   display: grid;
   gap: 16px;
-  align-content: start; /* 上に寄せる */
+  align-content: start;
 }
 
 .list {
@@ -82,7 +71,6 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1.8;
-
   @media (width >= 768px) {
     font-size: 18px;
   }
@@ -90,7 +78,6 @@
 
 .link {
   transition: color 0.3s;
-
   @media (any-hover: hover) {
     &:hover {
       color: var(--Blue-500);

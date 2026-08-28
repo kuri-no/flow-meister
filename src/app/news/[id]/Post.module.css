@@ -1,12 +1,8 @@
-.pagePost {
-}
-
 .title {
   color: var(--Slate-700);
   font-size: 22px;
   font-weight: 800;
   line-height: 1.8;
-
   @media (width >= 768px) {
     font-size: 28px;
   }
@@ -36,7 +32,6 @@
   gap: 8px;
   flex: 1 0 0;
   flex-wrap: wrap;
-
   @media (width >= 768px) {
     gap: 12px;
   }
@@ -54,7 +49,6 @@
   font-weight: 800;
   line-height: 1.8;
   transition: background-color 0.3s;
-
   @media (any-hover: hover) {
     &:hover {
       background-color: var(--Sky-200);
@@ -70,7 +64,6 @@
 
 .content {
   margin-top: 16px;
-
   @media (width >= 768px) {
     margin-top: 20px;
   }
@@ -78,7 +71,6 @@
 
 .content > * + * {
   margin-top: 16px;
-
   @media (width >= 768px) {
     margin-top: 20px;
   }
@@ -89,7 +81,6 @@
   font-size: 15px;
   font-weight: 500;
   line-height: 1.8;
-
   @media (width >= 768px) {
     font-size: 16px;
   }
@@ -103,7 +94,6 @@
   font-size: 18px;
   font-weight: 800;
   line-height: 1.8;
-
   @media (width >= 768px) {
     padding: 12px 18px;
     font-size: 24px;
@@ -119,7 +109,6 @@
   font-size: 17px;
   font-weight: 800;
   line-height: 1.8;
-
   @media (width >= 768px) {
     font-size: 20px;
   }
@@ -130,7 +119,6 @@
   font-size: 16px;
   font-weight: 800;
   line-height: 1.8;
-
   @media (width >= 768px) {
     font-size: 18px;
   }
@@ -148,11 +136,9 @@
   position: relative;
   padding-left: 16px;
   font-size: 15px;
-
   @media (width >= 768px) {
     font-size: 16px;
   }
-
   &::before {
     content: "";
     width: 8px;
@@ -170,7 +156,6 @@
   padding: 8px 20px;
   border-left: 4px solid var(--Blue-500);
   background: var(--White);
-
   @media (width >= 768px) {
     padding: 24px 28px;
   }
@@ -187,7 +172,6 @@
   color: var(--Blue-500);
   text-decoration: underline;
   transition: opacity 0.3s;
-
   @media (any-hover: hover) {
     &:hover {
       opacity: 0.6;
@@ -225,15 +209,15 @@
   font-weight: 800;
   line-height: normal;
   letter-spacing: 0.05em;
-  transition: color 0.3s, background-color 0.3s;
-
+  transition:
+    color 0.3s,
+    background-color 0.3s;
   @media (any-hover: hover) {
     &:hover {
       background: var(--Blue-500);
       color: var(--White);
     }
   }
-
   @media (width >= 768px) {
     padding: 16px 40px;
     font-size: 16px;

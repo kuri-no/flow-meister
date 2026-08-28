@@ -4,7 +4,6 @@ import styles from "./CaseSection.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Heading from "@/components/ui/Heading";
-import Button from "@/components/ui/Button";
 import { Autoplay } from "swiper/modules";
 import CaseCard from "./CaseCard";
 
@@ -116,10 +115,6 @@ export default function CaseSection() {
               );
             })}
           </Swiper>
-        </div>
-
-        <div className={styles.button}>
-          <Button href="#" text="導入事例をすべて見る" />
         </div>
       </div>
     </div>

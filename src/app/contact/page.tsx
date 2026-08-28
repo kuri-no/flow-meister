@@ -3,7 +3,7 @@ import OneColumn from "@/components/layout/OneColumn";
 import Form from "@/components/layout/Form";
 import styles from "./Contact.module.css";
 import Breadcrumb from "@/components/layout/Breadcrumb";
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 import { defaultOpenGrapth, siteName } from "@/lib/metadata";
 
 export const metadata: Metadata = {
@@ -21,12 +21,12 @@ export default function Contact() {
     {
       href: "/",
       text: "ホーム",
-    },  
+    },
     {
       href: "/contact/",
       text: "お問い合わせ",
     },
-  ]
+  ];
 
   return (
     <>
@@ -37,7 +37,8 @@ export default function Contact() {
       />
       <OneColumn isSlim={true}>
         <p className={styles.text}>
-          サービスに関するご相談やお問い合わせは、必要事項を入力の上、お問い合わせください。<br />
+          サービスに関するご相談やお問い合わせは、必要事項を入力の上、お問い合わせください。
+          <br />
           2～3営業日以内に、担当よりメールにて返信いたします。
         </p>
         <Form />

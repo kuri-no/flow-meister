@@ -29,9 +29,6 @@
   width: 100%;
 }
 
-.profileBody {
-}
-
 .profileName {
   color: var(--Slate-700);
   font-size: 18px;
@@ -66,9 +63,10 @@
   font-weight: 800;
   line-height: 1.5;
   letter-spacing: 0.05em;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
   cursor: pointer;
-
   @media (any-hover: hover) {
     &:hover {
       background-color: var(--White);
@@ -86,12 +84,6 @@
   transition: fill 0.3s;
 }
 
-.textNotFound {
-}
-
-.cards {
-}
-
 .card {
   display: flex;
   align-items: center;
@@ -106,7 +98,6 @@
   aspect-ratio: 155 / 103;
   border-radius: 4px;
   object-fit: cover;
-
   @media (width >= 768px) {
     width: calc(162 / 380 * 100%);
     aspect-ratio: 162 / 108;
@@ -145,9 +136,6 @@
   gap: 6px;
 }
 
-.list {
-}
-
 .link {
   display: flex;
   align-items: center;
@@ -156,7 +144,6 @@
   font-size: 16px;
   font-weight: 800;
   line-height: 1.8;
-
   &::before {
     content: "";
     width: 6px;

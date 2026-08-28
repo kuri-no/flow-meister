@@ -9,7 +9,6 @@
   font-weight: 800;
   line-height: 1.8;
   color: var(--Slate-700);
-
   @media (width >= 768px) {
     font-size: 18px;
   }
@@ -25,15 +24,12 @@
   font-size: 11px;
   font-weight: 500;
   line-height: 1.8;
-
   &.isRequired {
     background-color: var(--Blue-500);
   }
-
   &.isOptional {
     background-color: var(--Slate-400);
   }
-
   @media (width >= 768px) {
     border-radius: 4px;
     font-size: 13px;

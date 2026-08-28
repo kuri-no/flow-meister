@@ -54,7 +54,7 @@ export async function getTagPosts(
   if (response.status === 400 || response.status === 404) {
     return [];
   }
-  
+
   const posts = await response.json();
 
   return posts;

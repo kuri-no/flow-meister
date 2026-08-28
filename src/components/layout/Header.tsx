@@ -10,8 +10,8 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen((prev) => !prev)
-  }
+    setIsOpen((prev) => !prev);
+  };
 
   return (
     <header className={`${styles.header} ${isOpen && styles.isOpen}`}>
@@ -30,18 +30,8 @@ export default function Header() {
           <nav className={styles.nav}>
             <ul className={styles.lists}>
               <li className={styles.list}>
-                <Link href="/" className={styles.link}>
-                  ホーム
-                </Link>
-              </li>
-              <li className={styles.list}>
                 <Link href="/news/" className={styles.link}>
                   お知らせ
-                </Link>
-              </li>
-              <li className={styles.list}>
-                <Link href="/service/" className={styles.link}>
-                  サービス
                 </Link>
               </li>
             </ul>
@@ -49,7 +39,7 @@ export default function Header() {
 
           <div className={styles.info}>
             <div className={styles.tel}>
-              <p className={styles.number}>TEL: xx-xxxx-xxxxx</p>
+              <p className={styles.number}>TEL: 00-1111-2222</p>
               <p className={styles.hours}>営業時間: 9:00〜18:00</p>
             </div>
             <Link href="/contact/" className={styles.button}>

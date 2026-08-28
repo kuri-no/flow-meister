@@ -3,7 +3,6 @@
   flex-direction: column;
   flex-wrap: wrap;
   gap: 10px;
-
   &.is-horizontal {
     flex-direction: row;
   }
@@ -27,7 +26,6 @@
   display: grid;
   place-content: center;
   cursor: pointer;
-
   &::before {
     content: "";
     width: 10px;
@@ -37,15 +35,12 @@
     transition: opacity 0.2s;
     background: var(--Blue-500);
   }
-
   &:checked {
     border-color: var(--Blue-500);
-
     &::before {
       opacity: 1;
     }
   }
-
   &:focus {
     outline: none;
     border-color: var(--Blue-500);
@@ -57,7 +52,6 @@
   font-weight: 500;
   line-height: 1.8;
   color: var(--Slate-700);
-
   @media (width >= 768px) {
     font-size: 18px;
   }

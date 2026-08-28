@@ -5,24 +5,28 @@ import Link from "next/link";
 import NewsCard from "@/components/ui/NewsCard";
 import { stripHtmlTags } from "@/utils/string";
 import { formatDate } from "@/utils/date";
-import { getCategoryPosts, getCategoryFromId, getCategoryTotalPages } from "@/lib/wordpress";
+import {
+  getCategoryPosts,
+  getCategoryFromId,
+  getCategoryTotalPages,
+} from "@/lib/wordpress";
 import { FeaturedMedia, Term } from "@/types/wordpress";
 import Breadcrumb from "@/components/layout/Breadcrumb";
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 import { defaultOpenGrapth, siteName } from "@/lib/metadata";
-import { notFound } from 'next/navigation';
+import { notFound } from "next/navigation";
 
 type NewsProps = {
   params: Promise<{ id: string }>;
-}
+};
 
 export async function generateMetadata({
   params,
 }: NewsProps): Promise<Metadata> {
   const { id } = await params;
-  
+
   const currentCategoryId = parseInt(id);
-  const categry= await getCategoryFromId(currentCategoryId);
+  const categry = await getCategoryFromId(currentCategoryId);
 
   return {
     title: `「${categry.name}」の記事`,
@@ -41,8 +45,8 @@ export default async function News({ params }: NewsProps) {
   const perPage = 9;
   const currentPage = 1;
   const posts = await getCategoryPosts(currentCategoryId, perPage);
-  const categry= await getCategoryFromId(currentCategoryId);
-  const totalPages= await getCategoryTotalPages(currentCategoryId, perPage);
+  const categry = await getCategoryFromId(currentCategoryId);
+  const totalPages = await getCategoryTotalPages(currentCategoryId, perPage);
 
   if (posts.length === 0) {
     notFound();
@@ -61,7 +65,7 @@ export default async function News({ params }: NewsProps) {
       href: `/news/category/${id}/`,
       text: categry.name,
     },
-  ]
+  ];
 
   return (
     <>

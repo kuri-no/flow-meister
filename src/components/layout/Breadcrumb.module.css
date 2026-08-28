@@ -1,7 +1,7 @@
 .breadcrumb {
   padding-block: 12px;
   background: var(--White);
-  overflow: scroll;
+  overflow-x: auto;
 }
 
 .container {
@@ -19,7 +19,6 @@
   font-size: 12px;
   font-weight: 500;
   line-height: 1.8;
-
   @media (width >= 768px) {
     padding-inline: 20px;
   }
@@ -27,12 +26,10 @@
 
 .list {
   white-space: nowrap;
-
   &:nth-child(n + 2) {
     display: flex;
     align-items: center;
     gap: 8px;
-
     &::before {
       color: var(--Slate-700);
       content: ">";
@@ -45,7 +42,6 @@
   font-weight: 500;
   line-height: 1.8;
   transition: color 0.3s;
-
   @media (any-hover: hover) {
     &:hover {
       color: var(--Blue-500);

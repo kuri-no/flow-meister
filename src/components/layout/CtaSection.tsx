@@ -7,7 +7,11 @@ export default function CtaSection() {
   return (
     <section className={styles.cta}>
       <div className={styles.content}>
-        <Heading subText="Contact" mainText="お問い合わせ・ご相談" textAlign="isCenter" />
+        <Heading
+          subText="Contact"
+          mainText="お問い合わせ・ご相談"
+          textAlign="isCenter"
+        />
         <p className={styles.description}>
           サービスに関することならお気軽にご相談ください。
           <br />
@@ -18,7 +22,7 @@ export default function CtaSection() {
             <Button href="/contact/" text="お問い合わせする" />
           </div>
           <div className={styles.button}>
-            <ButtonOutline href="tel:xx-xxxx-xxxxx" text="TEL: xx-xxxx-xxxxx" />
+            <ButtonOutline href="tel:00-1111-2222" text="TEL: 00-1111-2222" />
           </div>
         </div>
       </div>

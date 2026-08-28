@@ -6,10 +6,14 @@ type LabelProps = {
   id?: string;
 };
 
-export default function Label({ text, isRequired = true, id = "" }: LabelProps) {
+export default function Label({
+  text,
+  isRequired = true,
+  id = "",
+}: LabelProps) {
   const tagText = isRequired ? "必須" : "任意";
   const tagClass = isRequired ? styles.isRequired : styles.isOptional;
-  
+
   return (
     <div className={styles.label}>
       <label htmlFor={id} className={styles.text}>
