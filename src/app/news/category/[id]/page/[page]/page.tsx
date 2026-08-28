@@ -12,9 +12,9 @@ import {
 } from "@/lib/wordpress";
 import { FeaturedMedia, Term } from "@/types/wordpress";
 import Breadcrumb from "@/components/layout/Breadcrumb";
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 import { defaultOpenGrapth, siteName } from "@/lib/metadata";
-import { notFound } from 'next/navigation';
+import { notFound } from "next/navigation";
 
 type NewsProps = {
   params: Promise<{ id: string; page: string }>;
@@ -24,9 +24,9 @@ export async function generateMetadata({
   params,
 }: NewsProps): Promise<Metadata> {
   const { id, page } = await params;
-  
+
   const currentCategoryId = parseInt(id);
-  const categry= await getCategoryFromId(currentCategoryId);
+  const categry = await getCategoryFromId(currentCategoryId);
 
   return {
     title: `「${categry.name}」の記事`,
@@ -65,7 +65,7 @@ export default async function News({ params }: NewsProps) {
       href: `/news/category/${id}/`,
       text: categry.name,
     },
-  ]
+  ];
 
   return (
     <>

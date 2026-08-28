@@ -19,17 +19,12 @@ export default function Footer() {
             </Link>
             <p className={styles.company}>株式会社Flow Meister</p>
             <p className={styles.address}>
-              〒000-0000　東京都xxxyyy1-1-1 xxxxxxxxx 3F
+              〒000-0000
+              <br />
+              東京都xxxyyy1-1-1 xxxxxxxxx 3F
             </p>
           </div>
           <nav className={styles.nav}>
-            <ul className={styles.lists1}>
-              <li className={styles.list}>
-                <Link href="/" className={styles.link}>
-                  ホーム
-                </Link>
-              </li>
-            </ul>
             <ul className={styles.lists2}>
               <li className={styles.list}>
                 <Link href="/news" className={styles.link}>

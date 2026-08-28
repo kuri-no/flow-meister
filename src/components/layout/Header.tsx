@@ -30,11 +30,6 @@ export default function Header() {
           <nav className={styles.nav}>
             <ul className={styles.lists}>
               <li className={styles.list}>
-                <Link href="/" className={styles.link}>
-                  ホーム
-                </Link>
-              </li>
-              <li className={styles.list}>
                 <Link href="/news/" className={styles.link}>
                   お知らせ
                 </Link>

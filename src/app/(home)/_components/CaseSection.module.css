@@ -32,6 +32,15 @@
   width: 100%;
 }
 
+.slider :global(.swiper-wrapper) {
+  align-items: stretch;
+}
+
+.slider :global(.swiper-slide) {
+  display: flex;
+  height: auto;
+}
+
 .pagination {
   display: flex;
   align-items: center;

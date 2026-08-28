@@ -1,7 +1,7 @@
 .breadcrumb {
   padding-block: 12px;
   background: var(--White);
-  overflow: scroll;
+  overflow-x: auto;
 }
 
 .container {

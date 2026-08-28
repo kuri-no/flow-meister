@@ -1,5 +1,3 @@
-// export const dynamic = "force-static";
-
 import PageFirstView from "@/components/layout/PageFirstView";
 import TwoColumn from "@/components/layout/TwoColumn";
 import Link from "next/link";
@@ -12,7 +10,7 @@ import { FeaturedMedia, Term } from "@/types/wordpress";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import type { Metadata } from "next";
 import { defaultOpenGrapth, siteName } from "@/lib/metadata";
-import { notFound } from 'next/navigation';
+import { notFound } from "next/navigation";
 
 type NewsProps = {
   params: Promise<{ id: string }>;
