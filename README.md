@@ -7,11 +7,13 @@ Basic認証
 パスワード ：nextsample  
 ページ数　 ：6P
 
-- フロントをNext.js 16（App Router）+TypeScriptで実装。
-- お知らせ機能はWordPressをREST API連携のヘッドレス CMS として利用し、記事・カテゴリー・アイキャッチを型安全に取得しています。
-- お問い合わせはSSGForm、ホスティングは Vercel。
-- ページごとに要件を分けてレンダリング方式を選定（静的ページはSSG、CMS 連携ページはSSR）。
-- UI と構造でディレクトリを分け、propsを型定義した再利用前提のコンポーネント設計を意識しました。
+## 制作範囲
+
+Next.jsで制作したコーポレートサイトです。
+支給されたデザインをもとに、Next.jsでの実装、WordPress連携、フォーム連携、Vercelへのデプロイを担当しました。
+WordPressを記事管理に利用しています。
+特に、複数ページで利用するデータ取得処理の共通化、お知らせ機能の実装に力を入れました。
+今後は正常に表示できることに加え、更新時や障害時の動作を説明・検証できる状態を目指します。
 
 ## 主な技術スタック
 
@@ -19,66 +21,63 @@ Basic認証
 - React 19
 - TypeScript
 - CSS Modules
-- WordPress REST API（`wp-types`）
+- WordPress
+- SSGForm
+- Vercel
 
-## セットアップ
+## レンダリング設計
 
-```bash
-npm install
-```
+CMSの記事を表示するページではサーバーコンポーネントでデータを取得し、お問い合わせ・送信完了などの記事取得が不要なページとは処理を分けています。
 
-プロジェクトルートに `.env` を作成し、以下の環境変数を設定してください。
+### トップ・お知らせ関連ページ：サーバー側での記事取得
 
-| 変数名 | 用途 |
-| --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | サイトの公開 URL（`metadataBase` / OGP の基準 URL） |
-| `NEXT_PUBLIC_SSG_FORM` | お問い合わせフォームの送信先エンドポイント（未設定時はフォームを無効表示） |
-| `WORDPRESS_POSTS_URL` | WordPress REST API の投稿エンドポイント |
-| `WORDPRESS_CATEGORIES_URL` | WordPress REST API のカテゴリーエンドポイント |
-| `BASIC_AUTH_USER` | Basic 認証のユーザー名（任意。未設定なら認証なし） |
-| `BASIC_AUTH_PASSWORD` | Basic 認証のパスワード（任意。未設定なら認証なし） |
+- トップページでは、お知らせセクションで最新の3件を取得しています。記事表示をセクション単位に分け、トップページ全体の構成と取得処理を切り離しました。
+- お知らせ一覧・詳細・カテゴリー別一覧では、共通のAPI関数を使い、ページ番号やカテゴリーIDに応じた記事を取得しています。
+- 記事詳細では、取得したタイトル・抜粋・アイキャッチ画像をメタデータにも利用し、記事内容に応じたタイトル・説明文・OGPを設定しています。
 
-WordPress のメディア配信ホストは `next.config.mjs` の `images.remotePatterns` に登録が必要です（現在は `https://kurino096.shop`）。
+現状は`fetch`の`cache`や`revalidate`を明示していないため、取得タイミングや更新反映を制御する設計には改善の余地があります。
+サーバー側でのデータ取得と、アクセスごとにページを生成するSSRは区別し、今後は更新頻度に応じたキャッシュ方針を明示して、ビルド結果と公開環境で更新反映を確認していきたいと考えています。
 
-## 開発サーバー起動
+### お問い合わせ・送信完了・404：記事取得が不要なページ
 
-```bash
-npm run dev
-```
+これらのページはWordPressへのアクセスを必要とせず、静的生成できる構成にしています。
+お問い合わせは外部フォームサービスと連携し、受付処理をページの描画から分離しました。
 
-`http://localhost:3000` で開発サーバーが起動します。
+## API連携
 
-## ビルド
+WordPress REST APIへのアクセスを`src/lib/wordpress.ts`に集約し、ページコンポーネントからURLの組み立てやレスポンス取得の処理を切り離しました。
+取得方法を変更する際の修正箇所をまとめ、ページ側では表示の組み立てに集中できるようにしています。
 
-```bash
-npm run build
-npm run start
-```
+### 用途に応じた取得処理の共通化
 
-`build` で本番ビルドを生成し、`start` で本番サーバーを起動します。デプロイ先は Vercel を想定しています。
+記事一覧の`getPosts`、詳細の`getPost`、カテゴリー別一覧の`getCategoryPosts`、カテゴリー情報の`getCategoryFromId`など、用途ごとに関数を分けました。
+一覧取得では表示件数やページ番号を引数で指定できるため、トップの3件表示とお知らせ一覧の9件表示に同じ取得処理を利用しています。
+
+### 関連データの取得とページネーション
+
+- 記事取得に`_embed`を付け、アイキャッチ画像とカテゴリー情報を記事本文とまとめて取得しています。記事カードごとに関連情報を追加取得する処理を減らしています。
+- `getTotalPages`・`getCategoryTotalPages`では、レスポンスヘッダーの`X-WP-TotalPages`から総ページ数を取得し、通常一覧・カテゴリー別一覧のページリンクに反映しています。
+
+現状は記事一覧と総ページ数を別の関数で取得しています。
+今後は1回のレスポンスから記事と総ページ数をまとめて返す形に見直し、取得処理を効率化したいと考えています。
+
+## フォーム連携
+
+お問い合わせの受付・通知メール送信にSSGFormを採用しました。
+静的生成したフォームページから外部サービスへ送信できるため、フォーム専用のバックエンドやメール送信基盤を自前で構築・運用する負担を抑えられると考えました。
 
 ## ディレクトリ構成
 
 ```
-├── next.config.mjs         ... Next.js設定（trailingSlash、画像リモートパターン等）
+├── .env                  ... 環境変数
+├── public/               ... 静的ファイル・画像アセット
 ├── src/
-│   ├── app/                ... App Router
-│   │   ├── (home)/          ... トップページと構成セクション（_components）
-│   │   ├── news/            ... お知らせ一覧・詳細・ページング・カテゴリー
-│   │   ├── contact/         ... お問い合わせ（thanks: 送信完了）
-│   │   ├── layout.tsx       ... 共通レイアウト・メタデータ
-│   │   ├── error.tsx / not-found.tsx
-│   │   └── globals.css
-│   ├── components/
-│   │   ├── layout/          ... Header, Footer, CtaSection, Form, Sidebar 等
-│   │   └── ui/              ... Button, Heading, Input, NewsCard 等の汎用UI
-│   ├── lib/
-│   │   ├── wordpress.ts     ... WordPress REST APIクライアント
-│   │   └── metadata.ts      ... OGP・サイト名の共通定義
-│   ├── types/              ... 型定義（WordPress関連）
-│   ├── utils/              ... 日付・文字列ユーティリティ
-│   └── middleware.ts       ... Basic認証（環境変数が設定されている場合のみ有効）
-└── public/                ... 画像・SVG等の静的ファイル
+│   ├── app/              ... App Router（ページ・レイアウト・ルーティング）
+│   ├── components/       ... UIコンポーネント群
+│   ├── lib/              ... ライブラリ・WordPress REST API連携
+│   ├── types/            ... 型定義
+│   ├── utils/            ... ユーティリティ関数
+│   └── middleware.ts     ... Basic認証
 ```
 
 ## スクリプト
@@ -87,27 +86,3 @@ npm run start
 - `npm run build` ... 本番ビルド（`next build`）
 - `npm run start` ... 本番サーバー起動（`next start`）
 - `npm run lint` ... ESLint 実行
-
-## 開発時の注意
-
-- Lint は `eslint-config-next`（core-web-vitals）、フォーマットは Prettier を使用します。
-- `.vscode/settings.json` により保存時に Prettier 整形と ESLint 自動修正が走ります。
-- お知らせ機能は WordPress REST API に依存するため、`WORDPRESS_POSTS_URL` / `WORDPRESS_CATEGORIES_URL` 未設定ではニュース系ページが正しく表示されません。
-
-## API連携
-
-- APIアクセスは関数群に集約し、ページコンポーネントからデータ取得の実装を切り離しました。
-（getPosts / getPost / getCategoryPosts / getCategoryFromId / getTotalPages など、責務ごとに分割）
-- ?_embedを付けてアイキャッチ画像・カテゴリーを一度のリクエストで取得。
-- ページネーションはレスポンスヘッダX-WP-TotalPagesを読んでページ数を算出。
-- レスポンスはwp-typesで型付け（WP_REST_API_Posts`等）し、埋め込みデータは必要な部分だけ自前の型（FeaturedMedia / Term）に絞って安全に扱う設計。
-
-## レンダリング
-
-- トップページはSSRでお知らせセクションで投稿を動的取得しています。
-- お知らせ一覧 / 詳細ページはSSRで動的取得です。fetchを非キャッシュにしており、CMSの記事追加・修正が即座に反映されます。
-- お問い合わせ / 送信完了 / 404ページはSSGでビルド静的生成。
-
-## その他
-
-- SSGFormはバックエンド・DB・メール基盤を自前で持つ必要性がないので、静的ホスティング構成と相性が良いと感じました。
